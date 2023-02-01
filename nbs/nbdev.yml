@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "nbdev_tutorial"
+  site-url: "https://Lekja00160612.github.io/nbdev_tutorial"
+  description: "nbdev tutorial developed using nbdev for Gradients Tech internal use"
+  repo-branch: main
+  repo-url: "https://github.com/Lekja00160612/nbdev_tutorial"
