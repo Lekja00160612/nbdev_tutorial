@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="This notebook works as a walkthrough to get started with nbdev">
+
+<title>nbdev_tutorial - nbdev101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="nbdev_tutorial - nbdev101">
+<meta property="og:description" content="This notebook works as a walkthrough to get started with nbdev">
+<meta property="og:site-name" content="nbdev_tutorial">
+<meta name="twitter:title" content="nbdev_tutorial - nbdev101">
+<meta name="twitter:description" content="This notebook works as a walkthrough to get started with nbdev">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">nbdev_tutorial</span>
+    </a>
+  </div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">nbdev101</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">nbdev_tutorial</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nbdev101.html" class="sidebar-item-text sidebar-link active">nbdev101</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./directives.html" class="sidebar-item-text sidebar-link">Directives</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./beauti_notebook.html" class="sidebar-item-text sidebar-link">Beauti notebook</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">under maintainance</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./under maintainance/blog_setup_guide.html" class="sidebar-item-text sidebar-link">Blog setup guide</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-nbdev" id="toc-why-nbdev" class="nav-link active" data-scroll-target="#why-nbdev">Why nbdev?</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a>
+  <ul class="collapse">
+  <li><a href="#first-nbdev-repo" id="toc-first-nbdev-repo" class="nav-link" data-scroll-target="#first-nbdev-repo">First nbdev repo</a></li>
+  <li><a href="#sec_edit_the_repo" id="toc-sec_edit_the_repo" class="nav-link" data-scroll-target="#sec_edit_the_repo">Edit the repo</a></li>
+  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Lekja00160612/nbdev_tutorial/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">nbdev101</h1>
+</div>
+
+<div>
+  <div class="description">
+    This notebook works as a walkthrough to get started with nbdev
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="why-nbdev" class="level2">
+<h2 class="anchored" data-anchor-id="why-nbdev">Why nbdev?</h2>
+<p>As an AI engineer, you mostly work with <code>.ipynb</code> files. While in production, <code>.py</code> files are compulsory for AI models to work with the Web backend. However, most newbies are suprisingly bad at software skills and unable to do the conversion. This is where <a href="https://nbdev.fast.ai">nbdev</a> comes to the rescue.</p>
+<p>Nbdev is a battery-ready notebook development platform built on top of <a href="https://quarto.org">Quarto</a>. It allows: - Synchronous <code>.ipynb</code> and <code>.py</code> file - Lightning fast document using <a href="https://www.markdownguide.org">markdown</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> while developing - Publish your package to PyPI or conda - <a href="https://www.youtube.com/watch?v=8aV5AxJrHDg&amp;list=PLZMWkkQEwOPmGolqJPsAm_4fcBDDc2to_">Continuous Integration</a> with git and launch your git page - Test, code, document in one place</p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>In this tutorial, we minimize reinventing the wheels. This is throughout the tutorial, most links and instructions will be used as intermediate steps to achieve our final goals. <strong>Please follow the instructions carefully!</strong></p>
+<section id="first-nbdev-repo" class="level3">
+<h3 class="anchored" data-anchor-id="first-nbdev-repo">First nbdev repo</h3>
+<section id="link" class="level4">
+<h4 class="anchored" data-anchor-id="link">Link</h4>
+<p>You will use <strong><a href="https://nbdev.fast.ai/tutorials/tutorial.html#install-nbdev">nbdev official tutorial</a></strong> to publish your first <a href="https://pages.github.com">github page</a> (<code>&lt;your_username&gt;.github.io</code>) <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</section>
+<section id="instruction" class="level4">
+<h4 class="anchored" data-anchor-id="instruction">Instruction</h4>
+<section id="in-this-tutorial-as-we-are-already-using-jupyterhub-no-need-to-reinstall-notebook-these-are-steps-you-need-to-follow-sequentially" class="level5">
+<h5 class="anchored" data-anchor-id="in-this-tutorial-as-we-are-already-using-jupyterhub-no-need-to-reinstall-notebook-these-are-steps-you-need-to-follow-sequentially">In this tutorial, as we are already using JupyterHub, no need to reinstall notebook, these are steps you need to follow <em>sequentially</em>:</h5>
+<ol type="1">
+<li><p>Install <code>nbdev</code> via <code>conda</code></p></li>
+<li><p>Install <code>quarto</code> via nbdev provided command (There might be ubuntu missing tools like <code>Curl</code>. Try to install these tools yourself or ask for support)</p></li>
+<li><p>Create a empty github repo and clone it to your local machine</p></li>
+<li><p>Initialise your nbdev repo (without the previous step, you will be asked for additional information)</p></li>
+<li><p>Push the initialised nbdev repo to github</p>
+<ol type="1">
+<li><code>git push</code> requires github <code>username</code> &amp; <code>password</code>. In order to login github securely, we create <code>Personal Access Token</code> by navigate to <a href="https://github.com/settings/profile">github profile</a> <code>Developer settings &gt; Personal Access Token - classic &gt; Generate new token</code>. During <code>git push</code>, do not enter your password, instead, fill <code>password</code> with the PAT</li>
+<li>After push your nbdev repo to github, navigate to <code>Actions</code>, you should see fail CI job. This is because by default github limits PAT permission, go to <strong>repo settings</strong> <code>Settings &gt; Actions &gt; General &gt; Workflow permissions &gt; Read and write permission &gt; Save</code>. Now rerun your CI and it should work now</li>
+</ol></li>
+<li><p>Enable github page</p></li>
+<li><p>Check your github page (<code>&lt;username&gt;.github.io/&lt;reponame&gt;</code>)</p></li>
+</ol>
+<p><em>Please check these steps carefully. If any error appear, please report to your supervisor.</em></p>
+</section>
+</section>
+</section>
+<section id="sec_edit_the_repo" class="level3">
+<h3 class="anchored" data-anchor-id="sec_edit_the_repo">Edit the repo</h3>
+<section id="link-1" class="level4">
+<h4 class="anchored" data-anchor-id="link-1">Link</h4>
+<p>To edit the repository, follow the instructions in the tutorial <a href="https://nbdev.fast.ai/tutorials/tutorial.html#make-your-first-edit">Make your first edit</a>.</p>
+</section>
+<section id="instruction-1" class="level4">
+<h4 class="anchored" data-anchor-id="instruction-1">Instruction</h4>
+<p>This tutorial is for those who want to maintain their repository and the steps are summarized below. Optional steps, indicated by prefix <code>O::</code> means can be skipped.</p>
+<ol type="1">
+<li><strong>Install hooks</strong> using the command <code>nbdev_install_hooks</code>.
+<details>
+<summary>
+<strong>The benefits of hooks</strong>
+</summary>
+Hooks ensure that the necessary checks and processes are run every time a change is made to the repo, such as converting the notebooks to Python files and checking for syntax errors, which helps to keep the code and the repo organized and consistent
+</details></li>
+<li><strong>Build your library</strong> using the command <code>nbdev_export</code>.
+<details>
+<summary>
+<strong>The use of nbdev_export</strong>
+</summary>
+Converts Jupyter notebooks <code>.ipynb</code> in repo into plain Python code <code>.py</code> and use as library in other projects. Helps code can be more reusable, maintainable and easier to integrate into other projects.
+</details></li>
+</ol>
+<ul>
+<li>O:: <strong>Install your package</strong>: Using the command <code>pip install -e '.[dev]'</code>. If you make changes to the code that do not affect the installation process (such as adding new features or fixing bugs), you may not need to run this command.
+<details>
+<summary>
+<strong>Use of install package with [dev]</strong>
+</summary>
+The command is used during the development of a Python package to allow the package to be installed and used in live environment while the source code is being edited.
+</details></li>
+<li>O:: <strong>Preview your docs</strong>: Using the command <code>nbdev_preview</code>. When you run the command, the terminal will display a browser link. Click on it to view the preview.
+<details>
+<summary>
+<strong>Use of nbdev_preview</strong>
+</summary>
+Generate a preview of the notebooks in the current repository in HTML format to allows you preview the notebooks and see how they will look when rendered.
+</details></li>
+</ul>
+<ol start="3" type="1">
+<li><p><strong>Edit .ipynb</strong>: The edit such as frontmatter, function will be clearly present in <a href="./directives.html">Directives</a></p></li>
+<li><p><strong>Prepare your change</strong> using the command <code>nbdev_prepare</code> <strong>before commit</strong> to ensure your modules are properly exported and your tests pass.</p></li>
+<li><p><strong>Push to Github</strong>: The error can occur because you forgot to run <code>nbdev_prepare</code>. So remember run this command before push to github. The commands to push to github</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>git add .<br>
+git commit -m &lt;message&gt;<br>
+git push</p>
+</blockquote>
+</section>
+</section>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Markdown is usually found in github repo by the name <code>README.md</code>, to learn more about Markdown go to <code>help &gt; markdown reference</code> and enjoy the tutorial. Another in-depth option is to buy <a href="https://www.markdownguide.org/book/">The Markdown Guide By Matt Cone</a> (or look it up in <code>./book</code>, we have downloaded the book there 🎶)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>You can find more github page examples on <a href="https://github.com/collections/github-pages-examples">github official site</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "directives.html",
+    "href": "directives.html",
+    "title": "Directives",
+    "section": "",
+    "text": "Learn more at official document\n\nDirectives are decorator of cells, used as signal for Quarto during rendering process. Their capabilities include: - Attributes - Code Output - Cell Output - Figures - Tables - Panel Layout - Page Columns"
+  },
+  {
+    "objectID": "directives.html#tutorial",
+    "href": "directives.html#tutorial",
+    "title": "Directives",
+    "section": "Tutorial",
+    "text": "Tutorial\nIn this tutorial, we note down most unique capabilities of directives. You should be using all of these in a common project. Nbdev officially provide a cheatsheet for directives.\n\nCell visibility\nA cell include 2 parts: code and output. Basically, there are directives to enable or disable individual component that you must notice.\nNote: render process will only display output if you executed the cell and had the output already. If you want Quarto to re-execute the cell during rendering or control during testing, see Section 2.2\n\n\nyou will not see the code after rendering\n\n\n\nprint('you will not see the output after rendering')\n\nYou may need more fine-grained control over the output such as printing warnings and errors. In those cases, Quarto provide #|error and #|warning. More control over output can be found here.\n\n\nCode\nprint('You will only see the output and the code is folded by default')\n\n\nYou will only see the output and the code is folded by default\n\n\n\n\nCell execution\nImport and execution must be in different cell\nDefault nbdev execution behavior is that only the cell contains show_doc() will be re-executed. More here!\n\nprint('this cell will be re-executing during rendering')\nprint(time.localtime())\n\nthis cell will be re-executing during rendering\ntime.struct_time(tm_year=2023, tm_mon=2, tm_mday=4, tm_hour=8, tm_min=46, tm_sec=41, tm_wday=5, tm_yday=35, tm_isdst=0)\n\n\n\nraise Exception(\"this cell will not be checked during testing or rendering\")\n\nException: this cell will not be checked during testing or rendering\n\n\n\n\nGenerating source code\n\n#|default_exp \n\n\n\n\n\n\nDanger\n\n\n\nThis directive is notebook level and should only appear once in one notebook\n\n\nIf our package is named: bitsnbytes then we can do:\nfrom bitsnbytes.baz import my_function\nYou can define the package name by using lib_name in settings.ini.\n\n\n#|export\nThis say_hello will then be export to default package set by #|default_exp. If you want to export to specific package, use #|export <package_name>.\nfrom <package_name> import say_hello\nThere are situations that you do not want to export private function since it only work as intermediate steps for other functions. Please use #|exporti or name your function with suffix _, for example def _private.\nIn normal cases, show_doc() only shows the metadata. To include the code itself, use #|exports directive. (notice the s)"
+  },
+  {
+    "objectID": "under maintainance/blog_setup_guide.html",
+    "href": "under maintainance/blog_setup_guide.html",
+    "title": "Blog setup guide",
+    "section": "",
+    "text": "Create a blog/ directory in your notebooks folder.\nCreate a index.qmd file in the root of the blog/ directory. This file signal Quarto that you are creating a blog and config how blogs are indexed. Change your title and subtitle\nChange the listing below in case you creating a different layout in Quarto\n\n\n## step 1\n!mkdir blog\n\n## step 2\n!touch blog/index.qmd\n\ncontent = \\\n\"\"\"---\ntitle: nbdev guide\nsubtitle: Tips to work with nbdev in your AI project\nlisting:\n    sort: \"date desc\"\n    contents: \"posts\"\n    sort-ui: false\n    filter-ui: false\n    categories: true\n    feed: true\npage-layout: full\n---\"\"\"\n\nwith open('./blog/index.qmd','w') as f:\n    f.write(content)\n\nmkdir: cannot create directory ‘blog’: File exists\n\n\n\n!mkdir book\n!touch book/markdown_guide.pdf\n!wget -O book/markdown_guide.pdf https://dl.icdst.org/pdfs/files3/c79990b0b853932d36ddc117ce2503e3.pdf\n\n--2023-01-31 12:07:06--  https://dl.icdst.org/pdfs/files3/c79990b0b853932d36ddc117ce2503e3.pdf\nResolving dl.icdst.org (dl.icdst.org)... 104.21.18.119, 172.67.181.206, 2606:4700:3034::6815:1277, ...\nConnecting to dl.icdst.org (dl.icdst.org)|104.21.18.119|:443... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: 3494936 (3.3M) [application/pdf]\nSaving to: ‘book/markdown_guide.pdf’\n\nbook/markdown_guide 100%[===================>]   3.33M  4.71MB/s    in 0.7s    \n\n2023-01-31 12:07:07 (4.71 MB/s) - ‘book/markdown_guide.pdf’ saved [3494936/3494936]"
+  },
+  {
+    "objectID": "nbdev101.html",
+    "href": "nbdev101.html",
+    "title": "nbdev101",
+    "section": "",
+    "text": "As an AI engineer, you mostly work with .ipynb files. While in production, .py files are compulsory for AI models to work with the Web backend. However, most newbies are suprisingly bad at software skills and unable to do the conversion. This is where nbdev comes to the rescue.\nNbdev is a battery-ready notebook development platform built on top of Quarto. It allows: - Synchronous .ipynb and .py file - Lightning fast document using markdown1 while developing - Publish your package to PyPI or conda - Continuous Integration with git and launch your git page - Test, code, document in one place"
+  },
+  {
+    "objectID": "nbdev101.html#getting-started",
+    "href": "nbdev101.html#getting-started",
+    "title": "nbdev101",
+    "section": "Getting started",
+    "text": "Getting started\nIn this tutorial, we minimize reinventing the wheels. This is throughout the tutorial, most links and instructions will be used as intermediate steps to achieve our final goals. Please follow the instructions carefully!\n\nFirst nbdev repo\n\nLink\nYou will use nbdev official tutorial to publish your first github page (<your_username>.github.io) 2\n\n\nInstruction\n\nIn this tutorial, as we are already using JupyterHub, no need to reinstall notebook, these are steps you need to follow sequentially:\n\nInstall nbdev via conda\nInstall quarto via nbdev provided command (There might be ubuntu missing tools like Curl. Try to install these tools yourself or ask for support)\nCreate a empty github repo and clone it to your local machine\nInitialise your nbdev repo (without the previous step, you will be asked for additional information)\nPush the initialised nbdev repo to github\n\ngit push requires github username & password. In order to login github securely, we create Personal Access Token by navigate to github profile Developer settings > Personal Access Token - classic > Generate new token. During git push, do not enter your password, instead, fill password with the PAT\nAfter push your nbdev repo to github, navigate to Actions, you should see fail CI job. This is because by default github limits PAT permission, go to repo settings Settings > Actions > General > Workflow permissions > Read and write permission > Save. Now rerun your CI and it should work now\n\nEnable github page\nCheck your github page (<username>.github.io/<reponame>)\n\nPlease check these steps carefully. If any error appear, please report to your supervisor.\n\n\n\n\nEdit the repo\n\nLink\nTo edit the repository, follow the instructions in the tutorial Make your first edit.\n\n\nInstruction\nThis tutorial is for those who want to maintain their repository and the steps are summarized below. Optional steps, indicated by prefix O:: means can be skipped.\n\nInstall hooks using the command nbdev_install_hooks.\n\n\nThe benefits of hooks\n\nHooks ensure that the necessary checks and processes are run every time a change is made to the repo, such as converting the notebooks to Python files and checking for syntax errors, which helps to keep the code and the repo organized and consistent\n\nBuild your library using the command nbdev_export.\n\n\nThe use of nbdev_export\n\nConverts Jupyter notebooks .ipynb in repo into plain Python code .py and use as library in other projects. Helps code can be more reusable, maintainable and easier to integrate into other projects.\n\n\n\nO:: Install your package: Using the command pip install -e '.[dev]'. If you make changes to the code that do not affect the installation process (such as adding new features or fixing bugs), you may not need to run this command.\n\n\nUse of install package with [dev]\n\nThe command is used during the development of a Python package to allow the package to be installed and used in live environment while the source code is being edited.\n\nO:: Preview your docs: Using the command nbdev_preview. When you run the command, the terminal will display a browser link. Click on it to view the preview.\n\n\nUse of nbdev_preview\n\nGenerate a preview of the notebooks in the current repository in HTML format to allows you preview the notebooks and see how they will look when rendered.\n\n\n\nEdit .ipynb: The edit such as frontmatter, function will be clearly present in Directives\nPrepare your change using the command nbdev_prepare before commit to ensure your modules are properly exported and your tests pass.\nPush to Github: The error can occur because you forgot to run nbdev_prepare. So remember run this command before push to github. The commands to push to github\n\n\ngit add .\ngit commit -m <message>\ngit push"
+  },
+  {
+    "objectID": "beauti_notebook.html",
+    "href": "beauti_notebook.html",
+    "title": "Beauti notebook",
+    "section": "",
+    "text": "Slidebar on Quarto document that helps notebook to be beautiful\nJust access the link, follow the instruction!\nThe documentation of crossref is perfect except it did not mention cross notebook reference. As we are using Quarto to code, modulized packages should have strong, rigorous structure. The following sections got you covered."
+  },
+  {
+    "objectID": "beauti_notebook.html#crossref",
+    "href": "beauti_notebook.html#crossref",
+    "title": "Beauti notebook",
+    "section": "Crossref",
+    "text": "Crossref\n\nread the code to follow\n\nFor example, a link like this would direct you to Directives, while this link would get you to Directives/Cell_execution (notice in 01_directives.ipynb, there is a line mark the section ### Cell execution {#sec-cell-execution})\nInconclusion, the formula is simple: 1. Add {<section_name>} to the file to redirect to 2. Add <file_name>#<section_name> in the hyperlink to redirect from\nAlso we used absolute path in this tutorial, feel free to use relative path like ../abc.ipynb"
+  },
+  {
+    "objectID": "beauti_notebook.html#callout",
+    "href": "beauti_notebook.html#callout",
+    "title": "Beauti notebook",
+    "section": "Callout",
+    "text": "Callout\n\nread the code to follow\n\n\n\nSome common use cases of callout\n\n\n\n\n\n\n\nNote\n\n\n\nNote that there are five types of callouts, including: note, warning, important, tip, and caution.\n\n\n\n\n\n\n\n\nTip With Caption\n\n\n\nThis is an example of a callout with a caption.\n\n\n\n\n\n\n\n\nExpand To Learn About Collapse\n\n\n\n\n\nThis is an example of a ‘folded’ caution callout that can be expanded by the user. You can use collapse=\"true\" to collapse it by default or collapse=\"false\" to make a collapsible callout that is expanded by default."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "nbdev_tutorial",
+    "section": "",
+    "text": "Every piece of code in this tutorial meant to run interactively. Follow the instructions, try to differentiate the code file and rendered file is the key!\nIf any bug or unclear section found. Please contact Gradients discord > working-group > nbdev_tutorial. Feel free to contact us to contrib.\n@contrib pphuc25 Lekko"
+  }
+]
